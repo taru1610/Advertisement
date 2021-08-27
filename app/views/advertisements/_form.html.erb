@@ -1,0 +1,42 @@
+<%= form_with(model: advertisement) do |form| %>
+  <% if advertisement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(advertisement.errors.count, "error") %> prohibited this advertisement from being saved:</h2>
+
+      <ul>
+        <% advertisement.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group needs-validation" novalidate>
+    <%= form.label :Company_name %>
+    <%= form.text_field :Company_name, class:"form-control" ,placeholder:"Company name" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title ,class:"form-control" ,placeholder:"Title" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description ,class:"form-control" ,placeholder:"Description" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email ,class:"form-control" ,placeholder:"Email Id" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :phone %>
+    <%= form.text_field :phone , class:"form-control",placeholder:"Phone Number" %>
+  </div>
+<br/>
+  <div class="actions">
+    <%= form.submit  class:'btn btn-outline-dark' %>
+  </div>
+<% end %>

@@ -1,0 +1,26 @@
+ 
+<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header"><strong><%= @advertisement.Company_name %></strong></div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @advertisement.title %></h5>
+    <p class="card-text"><%= @advertisement.description %></p>
+    <br/>
+    <p>
+      <strong>
+        <%= @advertisement.email %> | <%= @advertisement.phone %></strong>
+    </p>
+
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_advertisement_path(@advertisement) , class:"btn btn-outline-dark" %> 
+<%= link_to 'Back', advertisements_path , class:"btn btn-outline-dark" %>
+<br/>
+<br>
+
+<h5><%=  @advertisement.comments.count %> Comments</h5>
+      <%= render @advertisement.comments%>
+
+      <h6>Add a comment: </h6> 
+      <%= render 'comments/form' %>
+

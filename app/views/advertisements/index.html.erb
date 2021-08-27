@@ -1,0 +1,35 @@
+<%= @homepage %>
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Company name</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @advertisements.each do |advertisement| %>
+      <tr>
+        <td><%= advertisement.Company_name %></td>
+        <td><%= advertisement.title %></td>
+        <td><%= advertisement.description %></td>
+        <td><%= advertisement.email %></td>
+        <td><%= advertisement.phone %></td>
+        <td><%= link_to 'View', advertisement ,class:"btn btn-outline-info" %></td>
+        <td><%= link_to 'Edit', edit_advertisement_path(advertisement) ,class:"btn btn-outline-warning" %></td>
+        <td><%= link_to 'Delete', advertisement, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-outline-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<% if user_signed_in? %>
+  <%= link_to 'New Advertisement', new_advertisement_path , class:"btn btn-outline-dark" %>
+<% end %>

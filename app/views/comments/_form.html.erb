@@ -1,0 +1,12 @@
+<%= form_for([@advertisement,@advertisement.comments.build]) do |f| %>
+	<p>
+		<%= f.text_field :name ,class:"form-control" ,placeholder:"User name" %>
+	</p>
+	<p>
+		<%= f.text_area :body ,class:"form-control" ,placeholder:"Write your comment here..." %>
+	</p>
+	<br>
+	<p><%= f.submit class:'btn btn-outline-dark' %></p>
+<% end %>
+
+
